@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    background-image: url('img/wp4462093-alan-turing-wallpapers.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-position: center; 
+    position: relative;
+}
+
+.container {
+    width: 500px;
+    margin: 50px auto;
+    margin-bottom: 5px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com 80% de opacidade */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+    }
+}
+
+.project-name,
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff; /* Texto branco para melhor contraste */
+}
+
+.project-name {
+    font-size: 14px;
+    color: #888;
+}
+
+h1 {
+    color: #007bff;
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    color: #888; /* Texto branco para melhor contraste */
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333; /* Cor de texto padrão */
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com 90% de opacidade */
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Efeito hover para os botões */
+}
+
+.clear-btn,
+.copy-btn {
+    background-color: transparent;
+    color: #007bff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: none;
+}
+
+.clear-btn:hover,
+.copy-btn:hover {
+    background-color: transparent;
+    color: #007bff;
+}
+
+.right-panel {
+    text-align: center;
+}
+
+.output-message {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #888;
+}
+
+.output-text {
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 10px;
+    word-wrap: break-word;
+    white-space: pre-wrap; /* Garante que as quebras de linha são respeitadas */
+    border-radius: 5px;
+
+}
+
+.hidden-img {
+    max-width: 100px;
+    margin-top: 20px;
+}
+
+.theme-toggle {
+    cursor: pointer;
+}
+
+.theme-toggle-slider {
+    width: 40px; /* Ajustado conforme solicitado */
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle-slider:before {
+    position: absolute;
+    content: '';
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.theme-toggle-checkbox:checked + .theme-toggle-slider {
+    background-color: #2196F3;
+}
+
+.theme-toggle-checkbox:checked + .theme-toggle-slider:before {
+    transform: translateX(20px);
+}
+
+.theme-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.round {
+    border-radius: 20px;
+}
+
+body::before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: -1; 
+}
+
+/* Tema escuro */
+.dark-theme body {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-theme .container {
+    background-color: rgba(50, 50, 50, 0.8);
+}
+
+
+
+.dark-theme button {
+    background-color: #444;
+    color: #fff;
+}
+
+.dark-theme button:hover {
+    background-color: #666;
+}
+
+.dark-theme .output-message {
+    margin-top: 20px;
+    color: #bbb;
+}
+
+.dark-theme .output-text {
+    color: #fff;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    padding-right: 10px;
+    color: #888;
+    margin: auto;
+
+}
+
+footer .creator-name {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer .creator-name:hover {
+    text-decoration: underline;
+}
+
+.dark-theme footer {
+    color: #bbb;
+}
+
+.dark-theme footer .creator-name {
+    color: #4da3ff;
+}
+
+.dark-theme footer .creator-name:hover {
+    text-decoration: underline;
+}

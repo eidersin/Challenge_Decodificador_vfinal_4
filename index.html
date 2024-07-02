@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto ONE - Criptografia e Descriptografia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <label class="theme-toggle">
+            <input type="checkbox" class="theme-toggle-checkbox" id="theme-toggle-checkbox">
+            <span class="theme-toggle-slider round"></span>
+        </label>
+        <p class="project-name">Projeto ONE - Oracle</p>
+        <h1>Criptografia e Descriptografia</h1>
+        <div class="input-container">
+            <label for="texto">Digite seu texto:</label>
+            <textarea id="texto"  placeholder="Digite um texto para criptografar ou descriptografar"></textarea>
+            <div class="buttons-container">
+                <button class="clear-btn" id="clear-btn">Limpar</button>
+                <button class="copy-btn" id="copy-btn">Copiar</button>
+            </div>
+        </div>
+        <div class="input-container">
+            <label for="fileInput">Ou carregue um arquivo de texto:</label>
+            <input type="file" id="fileInput">
+        </div>
+        <div class="buttons-container">
+            <button class="crypt-btn">Criptografar</button>
+            <button class="decrypt-btn">Descriptografar</button>
+        </div>
+        <div class="right-panel">
+            <p class="output-message">Nenhuma mensagem encontrada.</p>
+            <p class="output-text"></p>
+        </div>
+    </div>
+    <footer>
+        <a class="creator-name" href="https://www.linkedin.com/in/dersonts/" target="_blank">Criado por <b>Wanderson Teixeira</b>.</a>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
