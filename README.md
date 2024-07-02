@@ -37,3 +37,15 @@ Permite alternar entre o tema claro e o tema escuro para melhor usabilidade.
 
 ### 8. Interface Responsiva
 A interface adapta-se automaticamente a diferentes tamanhos de tela, garantindo uma experiência de usuário consistente em dispositivos móveis e desktops.
+
+### Como Usar
+- Clone este repositório para sua máquina local.
+- Abra o arquivo index.html em seu navegador.
+- Digite o texto a ser criptografado ou descriptografado na área de texto.
+- Utilize os botões para criptografar, descriptografar, copiar ou limpar o texto.
+- Carregue um arquivo de texto, se desejar, utilizando o input de arquivo.
+
+### Tecnologias Utilizadas
+- HTML
+- CSS
+- JavaScript
