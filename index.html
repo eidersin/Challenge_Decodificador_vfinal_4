@@ -4,40 +4,203 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto ONE - Criptografia e Descriptografia</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
 </head>
 <body>
-    <div class="container">
-        <label class="theme-toggle">
-            <input type="checkbox" class="theme-toggle-checkbox" id="theme-toggle-checkbox">
-            <span class="theme-toggle-slider round"></span>
-        </label>
-        <p class="project-name">Projeto ONE - Oracle</p>
-        <h1>Criptografia e Descriptografia</h1>
-        <div class="input-container">
-            <label for="texto">Digite seu texto:</label>
-            <textarea id="texto"  placeholder="Digite um texto para criptografar ou descriptografar"></textarea>
-            <div class="buttons-container">
-                <button class="clear-btn" id="clear-btn">Limpar</button>
-                <button class="copy-btn" id="copy-btn">Copiar</button>
+    <div class="app">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🔐</span>
+                    <div class="logo-text">
+                        <h1>CryptoText</h1>
+                        <p class="project-subtitle">Projeto ONE - Oracle</p>
+                    </div>
+                </div>
+                <div class="header-controls">
+                    <label class="theme-toggle" aria-label="Alternar tema">
+                        <input type="checkbox" class="theme-toggle-checkbox" id="theme-toggle-checkbox">
+                        <span class="theme-toggle-slider">
+                            <span class="theme-icon sun">☀️</span>
+                            <span class="theme-icon moon">🌙</span>
+                        </span>
+                    </label>
+                </div>
             </div>
-        </div>
-        <div class="input-container">
-            <label for="fileInput">Ou carregue um arquivo de texto:</label>
-            <input type="file" id="fileInput">
-        </div>
-        <div class="buttons-container">
-            <button class="crypt-btn">Criptografar</button>
-            <button class="decrypt-btn">Descriptografar</button>
-        </div>
-        <div class="right-panel">
-            <p class="output-message">Nenhuma mensagem encontrada.</p>
-            <p class="output-text"></p>
-        </div>
+        </header>
+
+        <main class="main">
+            <div class="container">
+                <div class="input-section">
+                    <div class="input-header">
+                        <h2>Entrada de Texto</h2>
+                        <div class="input-options">
+                            <button class="option-btn active" data-input="text">
+                                <span class="icon">✏️</span>
+                                Texto
+                            </button>
+                            <button class="option-btn" data-input="file">
+                                <span class="icon">📁</span>
+                                Arquivo
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="input-container" id="text-input">
+                        <div class="textarea-wrapper">
+                            <textarea 
+                                id="texto" 
+                                placeholder="Digite seu texto aqui... (apenas letras minúsculas sem acentos)"
+                                maxlength="5000"
+                            ></textarea>
+                            <div class="char-counter">
+                                <span id="char-count">0</span>/5000
+                            </div>
+                        </div>
+                        <div class="input-actions">
+                            <button class="action-btn secondary" id="clear-btn">
+                                <span class="icon">🗑️</span>
+                                Limpar
+                            </button>
+                            <button class="action-btn secondary" id="paste-btn">
+                                <span class="icon">📋</span>
+                                Colar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="input-container hidden" id="file-input">
+                        <div class="file-upload-area" id="file-drop-zone">
+                            <div class="file-upload-content">
+                                <span class="file-icon">📄</span>
+                                <p>Arraste um arquivo aqui ou clique para selecionar</p>
+                                <p class="file-hint">Apenas arquivos .txt são aceitos</p>
+                            </div>
+                            <input type="file" id="fileInput" accept=".txt" hidden>
+                        </div>
+                        <div class="file-info hidden" id="file-info">
+                            <span class="file-name"></span>
+                            <button class="remove-file" id="remove-file">✕</button>
+                        </div>
+                    </div>
+
+                    <div class="validation-info">
+                        <div class="validation-rules">
+                            <h3>Regras de Validação:</h3>
+                            <ul>
+                                <li>✓ Apenas letras minúsculas (a-z)</li>
+                                <li>✓ Espaços são permitidos</li>
+                                <li>✗ Sem acentos ou caracteres especiais</li>
+                                <li>✗ Sem letras maiúsculas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions-section">
+                    <div class="crypto-actions">
+                        <button class="action-btn primary" id="encrypt-btn">
+                            <span class="icon">🔒</span>
+                            Criptografar
+                        </button>
+                        <button class="action-btn primary" id="decrypt-btn">
+                            <span class="icon">🔓</span>
+                            Descriptografar
+                        </button>
+                    </div>
+                    
+                    <div class="substitution-guide">
+                        <h3>Regras de Substituição:</h3>
+                        <div class="substitution-rules">
+                            <div class="rule">
+                                <span class="original">e</span>
+                                <span class="arrow">→</span>
+                                <span class="substitution">enter</span>
+                            </div>
+                            <div class="rule">
+                                <span class="original">i</span>
+                                <span class="arrow">→</span>
+                                <span class="substitution">imes</span>
+                            </div>
+                            <div class="rule">
+                                <span class="original">a</span>
+                                <span class="arrow">→</span>
+                                <span class="substitution">ai</span>
+                            </div>
+                            <div class="rule">
+                                <span class="original">o</span>
+                                <span class="arrow">→</span>
+                                <span class="substitution">ober</span>
+                            </div>
+                            <div class="rule">
+                                <span class="original">u</span>
+                                <span class="arrow">→</span>
+                                <span class="substitution">ufat</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output-section">
+                    <div class="output-header">
+                        <h2>Resultado</h2>
+                        <div class="output-actions">
+                            <button class="action-btn secondary" id="copy-btn" disabled>
+                                <span class="icon">📋</span>
+                                Copiar
+                            </button>
+                            <button class="action-btn secondary" id="download-btn" disabled>
+                                <span class="icon">💾</span>
+                                Baixar
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="output-container">
+                        <div class="output-placeholder" id="output-placeholder">
+                            <div class="placeholder-content">
+                                <span class="placeholder-icon">🔍</span>
+                                <h3>Nenhuma mensagem encontrada</h3>
+                                <p>Digite um texto e use os botões de criptografia para ver o resultado aqui.</p>
+                            </div>
+                        </div>
+                        <div class="output-content hidden" id="output-content">
+                            <div class="output-text" id="output-text"></div>
+                            <div class="output-stats">
+                                <span class="stat">
+                                    <strong>Caracteres:</strong> <span id="output-char-count">0</span>
+                                </span>
+                                <span class="stat">
+                                    <strong>Palavras:</strong> <span id="output-word-count">0</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Criado por <a href="https://www.linkedin.com/in/dersonts/" target="_blank" rel="noopener noreferrer"><strong>Wanderson Teixeira</strong></a></p>
+                <p class="footer-note">Projeto desenvolvido para o programa ONE - Oracle Next Education</p>
+            </div>
+        </footer>
     </div>
-    <footer>
-        <a class="creator-name" href="https://www.linkedin.com/in/dersonts/" target="_blank">Criado por <b>Wanderson Teixeira</b>.</a>
-    </footer>
-    <script src="app.js"></script>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay hidden" id="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Processando...</p>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,17 @@
+{
+  "name": "projeto-one-criptografia",
+  "version": "1.0.0",
+  "description": "Projeto ONE - Oracle - Criptografia e Descriptografia",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  },
+  "keywords": ["encryption", "decryption", "oracle", "one"],
+  "author": "Wanderson Teixeira",
+  "license": "MIT"
+}
